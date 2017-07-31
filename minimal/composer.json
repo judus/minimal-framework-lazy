@@ -1,0 +1,41 @@
+{
+  "name": "minimal/lazy",
+  "description": "The Minimal Framework (Lazy).",
+  "keywords": [
+    "framework",
+    "minimal",
+    "mvc"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Julien Duseyau",
+      "email": "julien.duseyau@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.6.0",
+    "maduser/minimal-php56": "v0.1.1",
+    "phpmailer/phpmailer": "^5.2",
+    "phpoffice/phpexcel": "^1.8"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "../modules"
+    },
+    "files": [
+      "helpers/helpers.php"
+    ]
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "php -r \"rename('minimal/config/_development.php', 'minimal/config/development.php');\"",
+      "php -r \"rename('minimal/config/_production.php', 'minimal/config/production.php');\"",
+      "php -r \"rename('minimal/config/_environment.php', 'minimal/config/environment.php');\""
+    ]
+  }
+}
